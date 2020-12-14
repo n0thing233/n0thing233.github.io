@@ -1,4 +1,4 @@
-```
+
 import heapq
 def get_minimum_cost(ropes):
     res = 0
@@ -17,4 +17,4 @@ print(get_minimum_cost([8, 4, 6, 12]))   # 58
 print(get_minimum_cost([20, 4, 8, 2]))    # 54
 print(get_minimum_cost([1, 2, 5, 10, 35, 89]))     #224
 print(get_minimum_cost([2, 2, 3, 3]))    #20
-```
+
