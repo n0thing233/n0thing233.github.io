@@ -1,4 +1,4 @@
-```
+
 #  O(n) solution usign two-pointer, duplicates issue is addressed.
 # ugly solution though, need further optimize
 def get_optimal_path(max_dist, forward_list, return_list):
@@ -121,4 +121,4 @@ print(get_optimal_path(10, [[1, 5], [2, 5]], [ [1, 5], [2, 5] ]))
 print(get_optimal_path(20, [[1, 8], [2, 7], [3, 14]], [[1, 5], [2, 10], [3, 14]]))
 print(get_optimal_path(20, [[1, 8], [2, 15], [3, 9]], [[1, 8], [2, 11], [3, 12]]))
 print(get_optimal_path(7000, [[1, 2000], [2, 4000], [3, 6000]], [[1, 2000]]))
-```
+
