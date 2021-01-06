@@ -1,32 +1,30 @@
-#https://aonecode.com/amazon-online-assessment-items-in-containers
-#time: O(len(s)*len(startIndices))
+#time: O(n)
 #space: O(len(s))
 def get_all(s,startIndices,endIndices):
+    num_of_compartment = []
+    count = 0
+    index_dict = {}
+    for i in range(len(s)):
+        if s[i] == '|':
+            index_dict[count] = i
+            count += 1
+        num_of_compartment.append(count)
     res = []
-    def get_num_of_items(s):
-        start_index = float('inf')
-        end_index = float('-inf')
-        for i in range(len(s)):
-            if s[i] == '|':
-                start_index = i
-                break
-        for i in range(len(s))[::-1]:
-            if s[i] == '|':
-                end_index = i
-                break
-        if start_index >= end_index:
-            
-            return 0
-        else:
-            counter = 0
-            for i in range(start_index, end_index):
-                if s[i] == '*':
-                    counter +=1
-            return counter
     for i in range(len(startIndices)):
-        start = max(0, startIndices[i]-1)
-        end = min(len(s)-1, endIndices[i]-1)
-        res.append(get_num_of_items(s[start:(end+1)]))
+        start, end = max(0,startIndices[i]-1), min(len(s)-1,endIndices[i]-1)
+        num_start, num_end = num_of_compartment[start], num_of_compartment[end]
+        #edge case if num_start = num_end:
+        if num_start >= num_end:
+            res.append(0)
+            continue
+        if s[start] == "*" and s[end] == "*":
+            res.append(index_dict[num_end-1] - index_dict[num_start] - (num_end-1 -num_start))
+        elif s[end] == "*" :
+            res.append(index_dict[num_end-1] - index_dict[num_start-1] - (num_end -num_start))
+        elif s[start] == "*":
+            res.append(index_dict[num_end-1] - index_dict[num_start] - (num_end-1 -num_start))
+        else:
+            res.append(index_dict[num_end-1] - index_dict[num_start-1] - (num_end -num_start))
     return res
 
 #test case:
