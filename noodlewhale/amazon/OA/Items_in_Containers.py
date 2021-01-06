@@ -1,3 +1,4 @@
+#一点都不简单啊
 #time: O(n)
 #space: O(len(s))
 def get_all(s,startIndices,endIndices):
