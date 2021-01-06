@@ -1,3 +1,4 @@
+#https://aonecode.com/amazon-online-assessment-items-in-containers
 #time: O(len(s)*len(startIndices))
 #space: O(len(s))
 def get_all(s,startIndices,endIndices):
