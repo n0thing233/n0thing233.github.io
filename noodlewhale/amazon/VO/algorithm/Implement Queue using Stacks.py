@@ -1,4 +1,5 @@
-#232. Implement Queue using Stacks
+#232. https://leetcode.com/problems/implement-queue-using-stacks/submissions/
+# all operations O(1). lazy load
 from collections import deque
 class MyQueue:
 
@@ -14,36 +15,41 @@ class MyQueue:
         """
         Push element x to the back of queue.
         """
-        while self.stack_1:
-            self.stack_2.append(self.stack_1.pop())
         self.stack_1.append(x)
-        while self.stack_2:
-            self.stack_1.append(self.stack_2.pop())
         return
 
     def pop(self) -> int:
         """
         Removes the element from in front of queue and returns that element.
         """
-        if self.empty():
-            raise Exception("no element to pop")
-        return self.stack_1.pop()
-        
+        if len(self.stack_2) > 0:
+            return self.stack_2.pop()
+        elif len(self.stack_1) == 0:
+            raise Exception("Sorry, no element to pop")
+        else:
+            while self.stack_1:
+                self.stack_2.append(self.stack_1.pop())
+            return self.stack_2.pop()
 
     def peek(self) -> int:
         """
         Get the front element.
         """
-        if self.empty():
-            raise Exception("no element in queue")
-        return self.stack_1[-1]
+        if len(self.stack_2) > 0:
+            return self.stack_2[-1]
+        elif len(self.stack_1) == 0:
+            raise Exception("Sorry, no element in stack")
+        else:
+            while self.stack_1:
+                self.stack_2.append(self.stack_1.pop())
+            return self.stack_2[-1]
         
         
     def empty(self) -> bool:
         """
         Returns whether the queue is empty.
         """
-        if len(self.stack_1) == 0:
+        if len(self.stack_1) == 0 and len(self.stack_2) == 0:
             return True
         else:
             return False
