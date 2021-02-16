@@ -61,3 +61,12 @@ b = child_2(attr_3 = 3)
 c = child_3()
 print(c.function_interface_1())
 print(c.function_interface_2())
+
+
+from enum import Enum
+class A(Enum):
+    a = 1
+    b = 2
+print(A.a.value)
+print(A(1).name)
+
