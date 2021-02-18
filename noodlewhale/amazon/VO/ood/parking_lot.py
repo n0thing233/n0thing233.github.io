@@ -1,25 +1,52 @@
 from abc import ABC, abstractmethod
-class Vechile(ABC):
-  @abstractmethod
-  def can_fit_in_spot(self, spot):
-      pass
+from enum import Enum
 
-class Motocycle(vehicle):
-class Bus(vehicle):
-  def can_fit_in_spot(self, spot):
-    return True if spot.size == LARGE else False
-class Car(vehicle):
-class ParkingLot(vehicle):
-class Level():
-  def __init__(self,levl)
-class parkingSpot():
-  def __init__(self,spot_number,spot_size,is_available = False,vehicle):
-    self.spot_number = spot_number
-    self.spot_type = spot_size
-    self.is_available = is_available
-    self.vehicle = vehicle
-  def is_available(self):
-    return self.is_available
+class parkingLot(Object):
+class vehicleType(Enum):
+  SMALL = 1
+  MEDIUM = 2
+  LARGE = 3
+  XLARGE = 4
+class vehicle(ABC):
+  def __init__(self,license = None, vehicleType = None):
+      self.license = license
+      self.vehicleType = vehiacleType
+      self.parked
+  @abstractmethod
+  def can_fit_in_spot(self,):
+class motocycle(vehicle):
+   def __init__(self,):
+      vehicle.__init__()
+   def can_fit_in_spot()
+class car(vehicle):
+  ...
+class truck(vehicle):
+  ...
+class bus(vehicle):
+  ...
+class spot(vehiacle):
+  def __init__(self,):
+    self.id = 
+    self.is_parked = 
+    self.spot_type = 
+    self.parked_vehicle_license = 
+class Parkinglot(Object):
+  def __init__(self):
+    self.num_of_spots
+    self.name
+    self.parking_spot = []
+  def place_vehicle(self,vehicle):
+     for i in self.parking_spot():
+        if i.is_parked:
+          continue
+        else:
+          if vehicle.vehicleType.value < = i.spot_type.value:
+              
+        
+  def remove_vehicle():
+
+  
+      
   
   
 
