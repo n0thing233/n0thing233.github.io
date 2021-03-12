@@ -1,0 +1,3 @@
+XY平面上given一个正多边形，edge数，两个vertex以及这两个vertex的rank
+回传所有vertex的座标
+
